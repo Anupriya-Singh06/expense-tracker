@@ -28,9 +28,13 @@ public class TransactionController {
                 .getAuthentication();
 
         String username = auth.getName();
+        var transactions = service.getByUser(username);
+        double total = transactions .stream()
+                .mapToDouble(Transaction::getAmount)
+                .sum();
+        model.addAttribute("totalAmount", total);
 
-
-        model.addAttribute("transactions", service.getByUser(username));
+        model.addAttribute("transactions", transactions);
         return "transactions";
     }
 

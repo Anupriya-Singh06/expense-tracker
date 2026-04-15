@@ -3,4 +3,14 @@
   "email" : "anupriyasingh1@gmail.com",
   "password" : "$2a$10$nPIcUfNMlzprnbtCd.36fOOJkS1jfhYrRkuBLHyWd.VURysIOiuCK",
   "role" : "ROLE_USER"
+}, {
+  "username" : "anupriya",
+  "email" : "anupriyasingh423anupriya@gmail.com",
+  "password" : "$2a$10$5ls0UvPzrZ9pMfZq/XqP7.4xl0FL/X89TyZ9sn46STxgdZGOnQaoe",
+  "role" : "ROLE_USER"
+}, {
+  "username" : "anupriya1",
+  "email" : "anupriyasingh423@gmail.com",
+  "password" : "$2a$10$3tBiaLzuaPMyuGKePNP9eOrxgsHdkYx7PLCUT2ZomY4Y4EmAJpDtm",
+  "role" : "ROLE_USER"
 } ]
