@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+
+<body class="bg-light">
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark px-3">
+    <span class="navbar-brand">Dashboard</span>
+
+    <div>
+        <a href="/add-transaction" class="btn btn-success btn-sm me-2">Add</a>
+        <a href="/logout" class="btn btn-danger btn-sm">Logout</a>
+    </div>
+</nav>
+
+<div class="container mt-4">
+
+    <!-- 💰 Overall Total -->
+    <div class="alert alert-primary text-center">
+        <strong>Total Expense: </strong>
+        <span th:text="${totalAmount}"></span>
+    </div>
+
+    <!-- 🥧 Pie Chart -->
+    <div class="card p-3 mb-4">
+        <h5 class="text-center">Current Month</h5>
+        <div id="pieChart"></div>
+    </div>
+
+    <!-- 📈 Line Chart -->
+    <div class="card p-3 mb-4">
+        <h5 class="text-center">Last 3 Months</h5>
+        <div id="lineChart"></div>
+    </div>
+
+    <!-- 📊 Month-wise Transactions -->
+
+
+</div>
+
+<!-- 🥧 Pie Chart -->
+<script th:inline="javascript">
+    const pieData = [[${currentMonthData}]] || {};
+
+    new ApexCharts(document.querySelector("#pieChart"), {
+        chart: { type: 'pie' },
+        series: Object.values(pieData),
+        labels: Object.keys(pieData)
+    }).render();
+</script>
+
+<!-- 📈 Line Chart -->
+<script th:inline="javascript">
+    const lineData = [[${lineData}]] || {};
+
+    const months = Object.keys(lineData);
+
+    let categoriesSet = new Set();
+
+    months.forEach(m => {
+        Object.keys(lineData[m]).forEach(c => categoriesSet.add(c));
+    });
+
+    const categories = Array.from(categoriesSet);
+
+    const series = categories.map(cat => ({
+        name: cat,
+        data: months.map(month => lineData[month][cat] || 0)
+    }));
+
+    new ApexCharts(document.querySelector("#lineChart"), {
+        chart: { type: 'line' },
+        series: series,
+        xaxis: { categories: months }
+    }).render();
+</script>
+
+</body>
+</html>
