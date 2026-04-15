@@ -53,7 +53,8 @@ public class UserFileService {
 
     public Optional<AppUser> findByUsername(String username) {
         return getAllUsers().stream()
-                .filter(u -> u.getUsername().equals(username))
+                .filter(u -> u.getUsername().equals(username)
+                || u.getEmail().equals(username))
                 .findFirst();
     }
 }

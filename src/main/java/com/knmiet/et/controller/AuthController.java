@@ -29,12 +29,13 @@ public class AuthController {
     // Handle signup
     @PostMapping("/signup")
     public String register(@RequestParam String username,
+                           @RequestParam String email,
                            @RequestParam String password) {
 
         System.out.println(username);
         System.out.println(password);
 
-        userService.saveUser(username, password);
+        userService.saveUser(username,email, password);
         return "redirect:/login";
     }
 

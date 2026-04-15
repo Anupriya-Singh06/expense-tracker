@@ -21,7 +21,7 @@ public class UserService implements UserDetailsService {
     @Autowired
     private UserFileService fileService;
 
-    public void saveUser(String username, String password) {
+    public void saveUser(String username, String email, String password) {
         System.out.println("Save User Method of UserService");
         // check duplicate user
         if (fileService.findByUsername(username).isPresent()) {
@@ -30,6 +30,7 @@ public class UserService implements UserDetailsService {
 
         AppUser user = new AppUser();
         user.setUsername(username);
+        user.setEmail(email);
         user.setPassword(encoder.encode(password));
         user.setRole("ROLE_USER");
 

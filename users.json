@@ -1,9 +1,6 @@
 [ {
-  "username" : "anu",
-  "password" : "$2a$10$InpQY6O869SiHP2KIk9bUuXbpa9Lh0LuL6xdsIT6Hm/MiXpUpFQ9a",
-  "role" : "ROLE_USER"
-}, {
-  "username" : "pramod",
-  "password" : "$2a$10$xVjHgSnqK9Aa1LS6b.3Hhelru4u2Xu.h1GUXkbuZAfywRwCdgKN7m",
+  "username" : "anu1",
+  "email" : "anupriyasingh1@gmail.com",
+  "password" : "$2a$10$nPIcUfNMlzprnbtCd.36fOOJkS1jfhYrRkuBLHyWd.VURysIOiuCK",
   "role" : "ROLE_USER"
 } ]
