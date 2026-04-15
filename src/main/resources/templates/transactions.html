@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h2>Your Transactions</h2>
+
+<a href="/add-transaction">Add New</a>
+
+<table border="1">
+    <tr>
+        <th>Category</th>
+        <th>Amount</th>
+        <th>Date</th>
+    </tr>
+
+    <tr th:each="t : ${transactions}">
+        <td th:text="${t.category}"></td>
+        <td th:text="${t.amount}"></td>
+        <td th:text="${t.dateTime}"></td>
+    </tr>
+</table>
+
+<a href="/home">Home</a>
+
+</body>
+</html>
